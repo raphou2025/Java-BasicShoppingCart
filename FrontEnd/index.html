@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+  <div class="bg-white p-6 rounded shadow w-80">
+    <input id="user" class="border p-2 w-full mb-2" placeholder="Username">
+    <input id="pass" type="password" class="border p-2 w-full mb-4" placeholder="Password">
+
+    <button onclick="login()" class="bg-blue-500 text-white w-full py-2 rounded">
+      Login
+    </button>
+  </div>
+
+  <script>
+    function login() {
+      fetch("http://localhost:8080/JavaBackend/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `username=${user.value}&password=${pass.value}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          alert("Login success!");
+        } else {
+          alert("Login failed!");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
