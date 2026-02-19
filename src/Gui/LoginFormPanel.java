@@ -193,7 +193,7 @@ public class LoginFormPanel extends JPanel {
         mainPanel.add(lblSubtitle, mpGbc);
 
         // Username label
-        JLabel lblUser = new JLabel("Username or email");
+        JLabel lblUser = new JLabel("Username");
         lblUser.setFont(new Font("Segoe UI", Font.BOLD, 13));
         lblUser.setForeground(new Color(156, 163, 175));
         mpGbc.gridy++;
